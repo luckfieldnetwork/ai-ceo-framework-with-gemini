@@ -172,7 +172,7 @@ On rejection, always define:
 - Whether interview quality was sufficient
 - Whether the contact person exists
 
-### Actions Claude takes
+### Actions Gemini takes
 When 2 consecutive phases have zero Strength A facts, when Gate 4 attempts to pass with only Strength B, or when Gate 5 lacks written continuation intent -- output specific warning messages recommending organizational documentation practices.
 
 ## Retreat Report (after 2 failed retries)

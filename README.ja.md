@@ -2,11 +2,11 @@
 
 [English](README.md) | **[日本語](README.ja.md)** | [中文](README.zh-CN.md)
 
-![License: MIT](https://img.shields.io/github/license/JOINCLASS/ai-ceo-framework)
-![GitHub stars](https://img.shields.io/github/stars/JOINCLASS/ai-ceo-framework?style=social)
-![GitHub last commit](https://img.shields.io/github/last-commit/JOINCLASS/ai-ceo-framework)
+![License: MIT](https://img.shields.io/github/license/luckfieldnetwork/ai-ceo-framework-with-gemini)
+![GitHub stars](https://img.shields.io/github/stars/luckfieldnetwork/ai-ceo-framework-with-gemini?style=social)
+![GitHub last commit](https://img.shields.io/github/last-commit/luckfieldnetwork/ai-ceo-framework-with-gemini)
 
-## Claude Code で会社経営を丸ごと自動化
+## Gemini で会社経営を丸ごと自動化
 
 **15のAIエージェント + 5つの本番スキル + 承認パイプライン。ひとり会社の業務の大半を自動化。**
 
@@ -25,13 +25,13 @@ AI-CEO Framework は実際の会社を運営しています。以下は2026-11-1
 | 配布しているAIエージェント | **15** | `agents/` 内のファイル |
 | 配布している再利用スキル | **5** | `skills/` 内のディレクトリ |
 
-運用コストは Claude Code Max プランと、ヘッドレス実行の従量課金です。従量分は固定ではなく、自動化を増やすにつれて増えています。
+運用コストは Gemini Advanced プランや Gemini API（Google AI Studio / Vertex AI）の従量課金、およびヘッドレス実行の利用料です。従量分は固定ではなく、自動化を増やすにつれて増えています。
 
 運用している会社自体は17エージェント・13スキルで動いています。差分は出版パイプラインやアウトバウンド営業など自社固有のもので、ここでは配布していません。
 
 以前のこのREADMEには「業務オペレーションの98%」「2025年から（1年以上）稼働」「約$250/月」と書いていました。98%は測定したものではなく、「2025年から」は誤りでした。確認できる数字に差し替えています。
 
-CEO1人。従業員ゼロ。経営チームはすべてClaude Codeが担う。
+CEO1人。従業員ゼロ。経営チームはすべてGeminiが担う。
 
 ---
 
@@ -68,12 +68,12 @@ CEO1人。従業員ゼロ。経営チームはすべてClaude Codeが担う。
 | `validate-hypothesis` | 6フェーズのビジネス仮説検証（誰も欲しがらないものを作ることを防ぐ） |
 | `write-blog` | プラットフォーム別スコアリング付きブログ記事作成（75点以上が基準） |
 | `polish-content` | ブログ記事の編集・品質改善 |
-| `upgrade-automation` | Claude Codeの新機能を検出し、自動化をアップグレード |
+| `upgrade-automation` | Gemini / Google AI の新機能を検出し、自動化をアップグレード |
 | `generate-cover` | HTML+CSS+Playwrightによる書籍カバー画像生成 |
 
-### Orchestrator (`CLAUDE.md`)
+### Orchestrator (`GEMINI.md`)
 
-システムの頭脳。単一のCLAUDE.mdが以下を担います:
+システムの頭脳。単一のGEMINI.mdが以下を担います:
 
 - 自然言語のリクエストを理解し、適切な部門へルーティング
 - 対外アクションの承認パイプラインを管理
@@ -99,7 +99,7 @@ CEO1人。従業員ゼロ。経営チームはすべてClaude Codeが担う。
 ```mermaid
 flowchart TD
     CEO["CEO（あなた）"]
-    ORC["CLAUDE.md\n（Orchestrator）"]
+    ORC["GEMINI.md\n（Orchestrator）"]
     
     CEO -->|自然言語| ORC
     
@@ -159,12 +159,12 @@ flowchart TD
 
 ```bash
 # フレームワークをあなたのプロジェクトにコピー
-cp -r ai-ceo-framework-pack/.claude/ your-project/.claude/
-cp ai-ceo-framework-pack/CLAUDE.md your-project/CLAUDE.md
+cp -r ai-ceo-framework-pack/.gemini/ your-project/.gemini/
+cp ai-ceo-framework-pack/GEMINI.md your-project/GEMINI.md
 
 # セットアップスクリプトを実行
 cd your-project
-bash .claude/setup.sh
+bash .gemini/setup.sh
 ```
 
 ### 2. セットアップの質問に回答
@@ -181,7 +181,7 @@ bash .claude/setup.sh
 
 ### 3. 使い始める
 
-プロジェクトディレクトリでClaude Codeを開き、自然な言葉で話しかけるだけです:
+プロジェクトディレクトリでGemini（Gemini CLI、Google Antigravityなどのエージェント環境）を開き、自然な言葉で話しかけるだけです:
 
 ```
 > 「今日の状況は？」
@@ -211,8 +211,8 @@ bash .claude/setup.sh
 
 ```
 your-project/
-  CLAUDE.md                          # Orchestrator（メインの頭脳）
-  .claude/
+  GEMINI.md                          # Orchestrator（メインの頭脳）
+  .gemini/
     agents/
       cto-agent.md                   # 15のエージェント定義
       cmo-agent.md
@@ -252,23 +252,23 @@ your-project/
 
 ## よくある質問
 
-**Q: Claude Codeの無料プランでも使えますか？**
-A: フレームワーク自体はどのClaude Codeプランでも動作します。ただし、サブエージェント（Agent toolを使用）にはClaude Code Max（$100/月）、またはAnthropic APIキーを設定したClaude Codeが必要です。最適なパフォーマンスのためにはClaude Code Maxを推奨します。
+**Q: どのGeminiモデルや環境で使えますか？**
+A: Gemini 1.5 Pro、Gemini 2.0、Gemini 3.xシリーズなど、Google AI Studio、Vertex AI、Gemini CLI、およびGoogle Antigravityなどのエージェント環境に対応しています。複雑なマルチエージェントの推論や委任タスクには、Gemini Pro / UltraクラスのモデルやCLIの利用を推奨します。
 
 **Q: 対応言語は？**
 A: フレームワークのテンプレートは英語です。すべてのエージェント定義とコマンドは英語で動作します。セットアップ後に、お好きな言語で動作するようカスタマイズ可能です。
 
 **Q: 独自のエージェントを追加できますか？**
-A: はい。`.claude/agents/` に同じフォーマット（frontmatter + ペルソナ + ワークフロー + 品質チェック）で新しい `.md` ファイルを作成するだけです。Orchestratorが自動的に検出します。
+A: はい。`.gemini/agents/` に同じフォーマット（frontmatter + ペルソナ + ワークフロー + 品質チェック）で新しい `.md` ファイルを作成するだけです。Orchestratorが自動的に検出します。
 
 **Q: 不要なエージェントを削除できますか？**
 A: はい。エージェントファイルを削除するだけです。Orchestratorは存在しない部門があっても正常に動作します。
 
-**Q: 長いCLAUDE.mdを書くだけとは何が違うのですか？**
-A: 3つの重要な違いがあります: (1) Orchestratorはサブエージェントに委任することで、コンテキスト使用率を10-15%に抑えます。すべてをひとつのプロンプトに詰め込むことはしません。 (2) 承認パイプラインにより、AIが無許可で対外アクションを実行することを防ぎます。 (3) 各エージェントが専門的な知識、品質チェック、出力テンプレートを持っており、モノリシックなCLAUDE.mdでは維持できない精度を実現します。
+**Q: 長いGEMINI.mdを書くだけとは何が違うのですか？**
+A: 3つの重要な違いがあります: (1) Orchestratorはサブエージェントに委任することで、コンテキスト使用率を10-15%に抑えます。すべてをひとつのプロンプトに詰め込むことはしません。 (2) 承認パイプラインにより、AIが無許可で対外アクションを実行することを防ぎます。 (3) 各エージェントが専門的な知識、品質チェック、出力テンプレートを持っており、モノリシックなGEMINI.mdでは維持できない精度を実現します。
 
 **Q: データは安全ですか？**
-A: すべてのデータはローカルの `.company/` ディレクトリに保存されます。Claude Codeの通常のAPI通信以外に、外部にデータが送信されることはありません。セキュリティポリシーと権限管理が標準で組み込まれています。
+A: すべてのデータはローカルの `.company/` ディレクトリに保存されます。設定されたGemini API / CLIの通信以外に、外部にデータが送信されることはありません。セキュリティポリシーと権限管理が標準で組み込まれています。
 
 **Q: チーム（ソロではなく）でも使えますか？**
 A: フレームワークはひとり会社向けに設計されていますが、少人数のチームでも問題なく使えます。承認パイプラインは単一の意思決定者（CEO）を前提としています。大規模なチームの場合は、承認フローのカスタマイズが必要かもしれません。
@@ -280,7 +280,7 @@ A: エラーハンドリングが組み込まれています。フィードバ�
 
 ## 書籍で背景を読む
 
-このフレームワークを実際の会社で動かした記録は、書籍『[Claude Codeで会社を動かす](https://zenn.dev/joinclass/books/claude-code-ai-ceo)』にまとめています（Zennで無料章あり）。
+このフレームワークの元となった本番運用の記録は、書籍『[Claude Codeで会社を動かす](https://zenn.dev/joinclass/books/claude-code-ai-ceo)』にまとめられています（Zennで無料章あり）。本リポジトリはそのアーキテクチャをGeminiエコシステム向けに最適化・移植したものです。
 
 ---
 
@@ -300,7 +300,7 @@ AI-CEO Frameworkの導入を支援します。合同会社ジョインクラス�
 
 | | AI-CEOなし | AI-CEOあり |
 |---|---|---|
-| **セットアップ** | 巨大なCLAUDE.md 1つに全部詰め込み | 15の専門エージェント + 薄いOrchestrator |
+| **セットアップ** | 巨大なGEMINI.md 1つに全部詰め込み | 15の専門エージェント + 薄いOrchestrator |
 | **コンテキスト使用** | 即座に100%消費 | Orchestratorは10-15%、残りは委任 |
 | **対外アクション** | AIがメール送信・デプロイし放題 | 承認パイプライン: ドラフト -> レビュー -> 実行 |
 | **エラー対応** | エラーは無視される | 自動リトライ3回、その後CEOへエスカレーション |
@@ -314,13 +314,13 @@ AI-CEO Frameworkの導入を支援します。合同会社ジョインクラス�
 
 これはプロンプト集ではありません。**AIで会社を運営するための、本番グレードのオペレーティングシステム**です。すべてのエージェント、すべてのワークフロー、すべての品質チェックは、2026年2月からの日常的な運用を通じて磨き上げられたものです。最もよく使うのは仮説検証スキルで、2026年8月には事業を3つに絞り5つのプロダクトから撤退する判断にも使いました。
 
-Claude Codeで会社全体を運営してきた経験の結晶 -- 失敗も、修正も、生き残ったフレームワークも、すべてです。
+AIエージェントで会社全体を運営してきた経験の結晶 -- Gemini向けに適応され、失敗も、修正も、生き残ったフレームワークも、すべてが含まれています。
 
 ---
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=JOINCLASS/ai-ceo-framework&type=Date)](https://star-history.com/#JOINCLASS/ai-ceo-framework)
+[![Star History Chart](https://api.star-history.com/svg?repos=luckfieldnetwork/ai-ceo-framework-with-gemini&type=Date)](https://star-history.com/#luckfieldnetwork/ai-ceo-framework-with-gemini)
 
 ---
 
@@ -328,9 +328,9 @@ Claude Codeで会社全体を運営してきた経験の結晶 -- 失敗も、�
 
 コントリビューションを歓迎します! バグ報告、機能リクエスト、プルリクエスト -- どんな貢献も大歓迎です。
 
-- **Issues**: バグやアイデアがあれば [Issueを作成](https://github.com/JOINCLASS/ai-ceo-framework/issues) してください。
+- **Issues**: バグやアイデアがあれば [Issueを作成](https://github.com/luckfieldnetwork/ai-ceo-framework-with-gemini/issues) してください。
 - **Pull Requests**: リポジトリをフォークし、変更を加えてPRを送ってください。変更は焦点を絞り、明確な説明を付けてください。
-- **Discussions**: Issueほどではない質問やアイデアは [Discussion](https://github.com/JOINCLASS/ai-ceo-framework/discussions) でどうぞ。
+- **Discussions**: Issueほどではない質問やアイデアは [Discussion](https://github.com/luckfieldnetwork/ai-ceo-framework-with-gemini/discussions) でどうぞ。
 
 ---
 
@@ -340,4 +340,4 @@ MIT License。詳細は [LICENSE](LICENSE) をご覧ください。
 
 ---
 
-Claude Codeで構築。本番環境で検証済み。あなたの会社でもすぐに使えます。
+Gemini向けに構築。本番環境で検証済み。あなたの会社でもすぐに使えます。

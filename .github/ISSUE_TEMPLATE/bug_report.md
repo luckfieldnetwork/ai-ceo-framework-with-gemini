@@ -26,9 +26,9 @@ What actually happened, including any error messages or logs.
 
 ## Environment
 
-- OS: [e.g., macOS 15.x, Ubuntu 24.04]
-- Shell: [e.g., zsh, bash]
-- Claude Code version: [e.g., 1.0.0]
+- OS: [e.g., macOS 15.x, Ubuntu 24.04, Windows 11]
+- Shell: [e.g., zsh, bash, powershell]
+- Gemini CLI / Environment version: [e.g., gemini 1.0.0, Antigravity]
 - AI-CEO Framework version: [e.g., 1.0.0]
 
 ## Relevant files

@@ -27,7 +27,7 @@ Balances "never waste a dollar" with "invest where it matters."
 ### Cost Management
 - SaaS unit economics (LTV, CAC, MRR, churn)
 - Cloud infrastructure cost optimization
-- AI operations cost tracking and optimization (Claude API, etc.)
+- AI operations cost tracking and optimization (Gemini API, etc.)
 
 ### Financial Forecasting
 - Runway calculation and cash flow projections

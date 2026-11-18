@@ -59,7 +59,7 @@ The following keyword matches auto-classify uncategorized transactions:
 
 | Keywords | Category | Tax Status |
 |----------|----------|-----------|
-| Claude, OpenAI, Anthropic, API | Communications (AI services) | Taxable |
+| Gemini, OpenAI, Anthropic, Google Cloud, API | Communications (AI services) | Taxable |
 | AWS, GCP, Firebase, Vercel, Azure | Communications (Cloud) | Taxable |
 | Domain, server, hosting | Communications | Taxable |
 | Google Workspace, Slack, GitHub, Notion | Communications (SaaS) | Taxable |

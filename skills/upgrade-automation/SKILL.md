@@ -1,20 +1,20 @@
 ---
 name: upgrade-automation
-description: Detect new Claude Code features and upgrade your company's automation. Usage: /upgrade-automation
+description: Detect new Gemini and Google AI features and upgrade your company's automation. Usage: /upgrade-automation
 ---
 
 # /upgrade-automation -- Automation Upgrade Skill
 
-Periodically check for new Claude Code and Anthropic features, identify those applicable to your automation, and propose/implement upgrades.
+Periodically check for new Gemini, Antigravity, and Google AI features, identify those applicable to your automation, and propose/implement upgrades.
 
 ## Information Sources
 
-1. **Anthropic Blog**: https://www.anthropic.com/news
-2. **Claude Code Documentation**: https://docs.anthropic.com/en/docs/claude-code
-3. **Claude Code Release Notes**: Check `claude --version`
-4. **GitHub**: https://github.com/anthropics
-5. **Community articles**: Claude Code tags on dev platforms
-6. **Social media**: @AnthropicAI official posts
+1. **Google AI Blog**: https://blog.google/technology/ai/
+2. **Google AI for Developers / Documentation**: https://ai.google.dev/
+3. **Gemini Release Notes & CLI Updates**: Check `gemini --version` or `agy --version`
+4. **GitHub**: https://github.com/google-gemini
+5. **Community articles**: Gemini and Google AI tags on dev platforms
+6. **Social media**: @GoogleDeepMind and @GoogleAI official posts
 
 ## Evaluation Criteria
 
@@ -37,7 +37,7 @@ Rate each new feature on 5 dimensions (10 points each, 50 total):
 ### Periodic Check (weekly)
 
 ```
-1. Run `claude --version` to check current version
+1. Run `gemini --version` or `agy --version` to check current version
 2. Compare with last checked version
 3. If new features found:
    a. Research feature details

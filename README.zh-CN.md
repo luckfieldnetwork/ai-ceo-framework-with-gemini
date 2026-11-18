@@ -2,11 +2,11 @@
 
 [English](README.md) | [日本語](README.ja.md) | **[中文](README.zh-CN.md)**
 
-![License: MIT](https://img.shields.io/github/license/JOINCLASS/ai-ceo-framework)
-![GitHub stars](https://img.shields.io/github/stars/JOINCLASS/ai-ceo-framework?style=social)
-![GitHub last commit](https://img.shields.io/github/last-commit/JOINCLASS/ai-ceo-framework)
+![License: MIT](https://img.shields.io/github/license/luckfieldnetwork/ai-ceo-framework-with-gemini)
+![GitHub stars](https://img.shields.io/github/stars/luckfieldnetwork/ai-ceo-framework-with-gemini?style=social)
+![GitHub last commit](https://img.shields.io/github/last-commit/luckfieldnetwork/ai-ceo-framework-with-gemini)
 
-## 用 Claude Code 运营你的整个公司
+## 用 Gemini 运营你的整个公司
 
 **15 个 AI 智能体 + 5 个生产级技能 + 审批流水线。一人公司，大部分业务由自动化完成。**
 
@@ -25,13 +25,13 @@ AI-CEO Framework 正在运营一家真实的公司。以下是截至 2026-11-11 
 | 本仓库提供的 AI 智能体 | **15 个** | `agents/` 中的文件 |
 | 本仓库提供的可复用技能 | **5 个** | `skills/` 中的目录 |
 
-运行成本为 Claude Code Max 订阅加上无头运行的按量计费。按量部分并不固定，随着自动化的增加而增长。
+运行成本为 Gemini Advanced 订阅或 Gemini API 用量（Google AI Studio / Vertex AI）加上无头运行的按量计费。按量部分并不固定，随着自动化的增加而增长。
 
 实际运营的公司使用 17 个智能体和 13 个技能。多出的部分是本公司特有的（出版流水线、外呼销售），不在此分发。
 
 本 README 的早期版本曾写有"98% 的业务运营""2025 年起（1 年以上）""约 $250/月"。98% 从未经过测量，"2025 年起"是错误的。现已替换为可以核实的数据。
 
-一位 CEO。零名员工。由 Claude Code 驱动的完整高管团队。
+一位 CEO。零名员工。由 Gemini 驱动的完整高管团队。
 
 ---
 
@@ -68,12 +68,12 @@ AI-CEO Framework 正在运营一家真实的公司。以下是截至 2026-11-11 
 | `validate-hypothesis` | 6 阶段商业假设验证（避免做出没人需要的产品） |
 | `write-blog` | 博客文章创作，附带平台适配评分（75 分及格线） |
 | `polish-content` | 博客内容的编辑打磨与质量提升 |
-| `upgrade-automation` | 检测 Claude Code 新功能并升级你的自动化体系 |
+| `upgrade-automation` | 检测 Gemini / Google AI 新功能并升级你的自动化体系 |
 | `generate-cover` | 使用 HTML+CSS+Playwright 生成书籍封面 |
 
-### 编排器（`CLAUDE.md`）
+### 编排器（`GEMINI.md`）
 
-整个系统的大脑。一份 CLAUDE.md 文件即可：
+整个系统的大脑。一份 GEMINI.md 文件即可：
 
 - 理解自然语言请求，将其路由到对应部门
 - 管理对外操作的审批流水线
@@ -84,7 +84,7 @@ AI-CEO Framework 正在运营一家真实的公司。以下是截至 2026-11-11 
 ### 管控文件（`steering/`）
 
 | 文件 | 用途 |
-|------|------|
+|------|---------|
 | `permissions.md` | 权限级别（read-only / draft / execute）、成本阈值、部署规则 |
 | `policies.md` | 安全、质量、成本管理、开发流程、合规等制度 |
 
@@ -99,7 +99,7 @@ AI-CEO Framework 正在运营一家真实的公司。以下是截至 2026-11-11 
 ```mermaid
 flowchart TD
     CEO["CEO（你）"]
-    ORC["CLAUDE.md\n（编排器）"]
+    ORC["GEMINI.md\n（编排器）"]
     
     CEO -->|自然语言| ORC
     
@@ -159,12 +159,12 @@ flowchart TD
 
 ```bash
 # 将框架复制到你的项目中
-cp -r ai-ceo-framework-pack/.claude/ your-project/.claude/
-cp ai-ceo-framework-pack/CLAUDE.md your-project/CLAUDE.md
+cp -r ai-ceo-framework-pack/.gemini/ your-project/.gemini/
+cp ai-ceo-framework-pack/GEMINI.md your-project/GEMINI.md
 
 # 运行安装脚本
 cd your-project
-bash .claude/setup.sh
+bash .gemini/setup.sh
 ```
 
 ### 2. 回答设置问题
@@ -181,7 +181,7 @@ bash .claude/setup.sh
 
 ### 3. 开始使用
 
-在你的项目目录中打开 Claude Code，直接用自然语言交流即可：
+在你的项目目录中打开 Gemini（Gemini CLI、Google Antigravity 或相应智能体环境），直接用自然语言交流即可：
 
 ```
 > "今天公司情况怎么样？"
@@ -211,8 +211,8 @@ bash .claude/setup.sh
 
 ```
 your-project/
-  CLAUDE.md                          # 编排器（系统大脑）
-  .claude/
+  GEMINI.md                          # 编排器（系统大脑）
+  .gemini/
     agents/
       cto-agent.md                   # 15 个智能体定义
       cmo-agent.md
@@ -252,23 +252,23 @@ your-project/
 
 ## 常见问题
 
-**问：这个框架支持 Claude Code 免费版吗？**
-答：框架本身兼容所有 Claude Code 方案。但子智能体（使用 Agent 工具）需要 Claude Code Max（$100/月）或带 Anthropic API 密钥的 Claude Code。为获得最佳体验，推荐使用 Claude Code Max。
+**问：支持哪些 Gemini 模型和环境？**
+答：框架兼容 Gemini 1.5 Pro、Gemini 2.0、Gemini 3.x 系列模型，支持 Google AI Studio、Vertex AI、Gemini CLI 以及 Google Antigravity 等智能体运行环境。对于复杂的多智能体推理与子任务委派，推荐使用 Gemini Pro / Ultra 级别模型或 CLI 工具。
 
 **问：框架支持哪些语言？**
 答：框架模板为英文。所有智能体定义和命令均以英文编写。安装完成后，你可以自定义智能体以支持任何语言。
 
 **问：我可以添加自己的智能体吗？**
-答：可以。在 `.claude/agents/` 中创建一个新的 `.md` 文件，遵循相同格式（frontmatter + 角色定位 + 工作流程 + 质量检查）。编排器会自动发现它。
+答：可以。在 `.gemini/agents/` 中创建一个新的 `.md` 文件，遵循相同格式（frontmatter + 角色定位 + 工作流程 + 质量检查）。编排器会自动发现它。
 
 **问：可以删除不需要的智能体吗？**
 答：可以。直接删除智能体文件即可。编排器会优雅地处理缺失的部门。
 
-**问：这和直接写一个很长的 CLAUDE.md 有什么区别？**
-答：三个关键区别：（1）编排器通过委派子智能体将自身上下文保持在 10-15%，而不是把所有内容塞进一个提示词里。（2）审批流水线防止 AI 擅自执行对外操作。（3）每个智能体都有专业知识、质量检查和输出模板，这是单一 CLAUDE.md 无法维持的。
+**问：这和直接写一个很长的 GEMINI.md 有什么区别？**
+答：三个关键区别：（1）编排器通过委派子智能体将自身上下文保持在 10-15%，而不是把所有内容塞进一个提示词里。（2）审批流水线防止 AI 擅自执行对外操作。（3）每个智能体都有专业知识、质量检查和输出模板，这是单一 GEMINI.md 无法维持的。
 
 **问：我的数据安全吗？**
-答：所有数据都保存在你本地的 `.company/` 目录中。除了 Claude Code 正常的 API 调用外，不会向任何地方发送数据。框架内置了安全策略和权限控制。
+答：所有数据都保存在你本地的 `.company/` 目录中。除了配置的 Gemini API / CLI 正常通信外，不会向任何地方发送数据。框架内置了安全策略和权限控制。
 
 **问：可以用于团队（而非一人公司）吗？**
 答：框架为一人公司设计，但也适用于小型团队。审批流水线天然支持单一决策者（CEO）模式。对于更大的团队，你可能需要自定义审批流程。
@@ -280,7 +280,7 @@ your-project/
 
 ## 了解背景（日文书籍）
 
-本框架在真实公司中的运营记录已整理成一本日文书籍：[Claude Codeで会社を動かす](https://zenn.dev/joinclass/books/claude-code-ai-ceo)（Zenn 上有免费章节）。
+本框架背后的真实公司运营记录已整理成一本日文书籍：[Claude Codeで会社を動かす](https://zenn.dev/joinclass/books/claude-code-ai-ceo)（Zenn 上有免费章节）。本仓库将该生产级架构移植并适配到了 Gemini 生态体系中。
 
 ---
 
@@ -300,7 +300,7 @@ your-project/
 
 | | 没有 AI-CEO | 使用 AI-CEO |
 |---|---|---|
-| **设置** | 一个巨大的 CLAUDE.md 塞下所有内容 | 15 个专业智能体 + 精简编排器 |
+| **设置** | 一个巨大的 GEMINI.md 塞下所有内容 | 15 个专业智能体 + 精简编排器 |
 | **上下文使用** | 瞬间消耗 100% | 编排器仅占 10-15%，其余委派 |
 | **对外操作** | AI 随意发邮件、部署 | 审批流水线：草稿 -> 审核 -> 执行 |
 | **错误处理** | 错误被默默忽略 | 自动重试 3 次，然后上报 CEO |
@@ -314,13 +314,13 @@ your-project/
 
 这不是一个提示词合集。这是一套**用 AI 运营公司的生产级操作系统**。每一个智能体、每一条工作流程、每一项质量检查，都经过了自 2026 年 2 月以来的日常使用打磨。我们最常用的是假设验证技能：2026 年 8 月，它参与了将公司收缩为三项业务、撤出五个产品的决策。
 
-这是用 Claude Code 运营整个公司的提炼经验 -- 踩过的坑、修过的 bug、以及那些经受住考验的框架。
+这是用 AI 智能体运营整个公司的提炼经验 -- 为 Gemini 进行深度适配，踩过的坑、修过的 bug、以及那些经受住考验的框架。
 
 ---
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=JOINCLASS/ai-ceo-framework&type=Date)](https://star-history.com/#JOINCLASS/ai-ceo-framework)
+[![Star History Chart](https://api.star-history.com/svg?repos=luckfieldnetwork/ai-ceo-framework-with-gemini&type=Date)](https://star-history.com/#luckfieldnetwork/ai-ceo-framework-with-gemini)
 
 ---
 
@@ -328,9 +328,9 @@ your-project/
 
 欢迎贡献！无论是 Bug 报告、功能建议还是 Pull Request，所有参与都很有价值。
 
-- **Issues**：发现 Bug 或有想法？请 [提交 Issue](https://github.com/JOINCLASS/ai-ceo-framework/issues)。
+- **Issues**：发现 Bug 或有想法？请 [提交 Issue](https://github.com/luckfieldnetwork/ai-ceo-framework-with-gemini/issues)。
 - **Pull Requests**：Fork 仓库，进行修改，提交 PR。请保持修改聚焦，并附上清晰的说明。
-- **Discussions**：问题或想法还不够成为 Issue？欢迎发起 [Discussion](https://github.com/JOINCLASS/ai-ceo-framework/discussions)。
+- **Discussions**：问题或想法还不够成为 Issue？欢迎发起 [Discussion](https://github.com/luckfieldnetwork/ai-ceo-framework-with-gemini/discussions)。
 
 ---
 
@@ -340,4 +340,4 @@ MIT License。详情请参阅 [LICENSE](LICENSE)。
 
 ---
 
-用 Claude Code 构建。在生产环境验证。为你的公司准备就绪。
+为 Gemini 构建。在生产环境验证。为你的公司准备就绪。

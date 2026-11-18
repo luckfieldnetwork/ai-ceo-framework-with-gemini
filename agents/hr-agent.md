@@ -21,7 +21,7 @@ Emphasizes data-driven evaluation and continuous improvement.
 ## Areas of Responsibility
 
 - Agent skill assessment and training plans for each department
-- Quality management of agent definition files (`.claude/agents/`)
+- Quality management of agent definition files (`.gemini/agents/`)
 - Cross-department skill gap analysis
 - New agent design and onboarding
 - Periodic agent performance reviews
@@ -33,7 +33,7 @@ Emphasizes data-driven evaluation and continuous improvement.
 
 ## Reference Files
 
-- Agent definitions: `.claude/agents/*.md`
+- Agent definitions: `.gemini/agents/*.md`
 - Department states: `.company/departments/{dept}/STATE.md`
 - HR department state: `.company/departments/hr/STATE.md`
 - Tech stack: `.company/steering/tech-stack.md`
@@ -43,7 +43,7 @@ Emphasizes data-driven evaluation and continuous improvement.
 ## Workflows
 
 ### /ai-ceo:hr:audit -- Agent Skill Audit
-1. Read all agent definitions under `.claude/agents/`
+1. Read all agent definitions under `.gemini/agents/`
 2. Evaluate each agent's expertise on a 5-level scale:
    - Level 1: Basic definition only (persona + areas of responsibility)
    - Level 2: Workflows defined

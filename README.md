@@ -2,11 +2,11 @@
 
 **[English](README.md)** | [日本語](README.ja.md) | [中文](README.zh-CN.md)
 
-![License: MIT](https://img.shields.io/github/license/JOINCLASS/ai-ceo-framework)
-![GitHub stars](https://img.shields.io/github/stars/JOINCLASS/ai-ceo-framework?style=social)
-![GitHub last commit](https://img.shields.io/github/last-commit/JOINCLASS/ai-ceo-framework)
+![License: MIT](https://img.shields.io/github/license/luckfieldnetwork/ai-ceo-framework-with-gemini)
+![GitHub stars](https://img.shields.io/github/stars/luckfieldnetwork/ai-ceo-framework-with-gemini?style=social)
+![GitHub last commit](https://img.shields.io/github/last-commit/luckfieldnetwork/ai-ceo-framework-with-gemini)
 
-## Run Your Entire Company with Claude Code
+## Run Your Entire Company with Gemini
 
 **15 AI Agents + 5 Production Skills + Approval Pipeline. One-person company, mostly run by automation.**
 
@@ -25,13 +25,13 @@ AI-CEO Framework runs a real company. These are the figures we can check, as of 
 | AI agents shipped here | **15** | Files in `agents/` |
 | Reusable skills shipped here | **5** | Directories in `skills/` |
 
-The running cost is a Claude Code Max plan plus metered usage for headless runs. The metered part is not fixed: it grew as we added automation.
+The running cost is a Gemini Advanced subscription or Gemini API usage (via Google AI Studio / Vertex AI) plus metered usage for headless runs. The metered part is not fixed: it grew as we added automation.
 
 The operating company itself runs 17 agents and 13 skills. The extras are specific to our business (publishing pipelines, outbound sales) and are not distributed here.
 
 An earlier version of this README claimed "98% of business operations", "in production since 2025 (1+ year)" and "~$250/month". The 98% was never measured, and "since 2025" was wrong. They have been replaced with figures that can be checked.
 
-One CEO. Zero employees. Full C-suite powered by Claude Code.
+One CEO. Zero employees. Full C-suite powered by Gemini.
 
 ---
 
@@ -68,12 +68,12 @@ Reusable, invocable skill definitions that agents call to execute specific tasks
 | `validate-hypothesis` | 6-phase business hypothesis validation (prevents building things nobody wants) |
 | `write-blog` | Blog article creation with platform-specific scoring (75+ point threshold) |
 | `polish-content` | Content editing and quality improvement for blog posts |
-| `upgrade-automation` | Detect new Claude Code features and upgrade your automation |
+| `upgrade-automation` | Detect new Gemini / Google AI features and upgrade your automation |
 | `generate-cover` | Book cover image generation using HTML+CSS+Playwright |
 
-### Orchestrator (`CLAUDE.md`)
+### Orchestrator (`GEMINI.md`)
 
-The brain of the system. A single CLAUDE.md that:
+The brain of the system. A single GEMINI.md that:
 
 - Understands natural language requests and routes them to the right department
 - Manages the approval pipeline for external-facing actions
@@ -99,7 +99,7 @@ The brain of the system. A single CLAUDE.md that:
 ```mermaid
 flowchart TD
     CEO["CEO (You)"]
-    ORC["CLAUDE.md\n(Orchestrator)"]
+    ORC["GEMINI.md\n(Orchestrator)"]
     
     CEO -->|Natural language| ORC
     
@@ -159,12 +159,12 @@ Max 2 retries. If it fails twice, a retreat report is generated. This prevents b
 
 ```bash
 # Copy the framework to your project
-cp -r ai-ceo-framework-pack/.claude/ your-project/.claude/
-cp ai-ceo-framework-pack/CLAUDE.md your-project/CLAUDE.md
+cp -r ai-ceo-framework-pack/.gemini/ your-project/.gemini/
+cp ai-ceo-framework-pack/GEMINI.md your-project/GEMINI.md
 
 # Run the setup script
 cd your-project
-bash .claude/setup.sh
+bash .gemini/setup.sh
 ```
 
 ### 2. Answer setup questions
@@ -181,7 +181,7 @@ The script will ask you:
 
 ### 3. Start using it
 
-Open Claude Code in your project directory. Just talk naturally:
+Open Gemini (via Gemini CLI, Google Antigravity, or your Gemini agent environment) in your project directory. Just talk naturally:
 
 ```
 > "What's our status today?"
@@ -211,8 +211,8 @@ After setup, your project will have:
 
 ```
 your-project/
-  CLAUDE.md                          # Orchestrator (main brain)
-  .claude/
+  GEMINI.md                          # Orchestrator (main brain)
+  .gemini/
     agents/
       cto-agent.md                   # 15 agent definitions
       cmo-agent.md
@@ -252,23 +252,23 @@ your-project/
 
 ## FAQ
 
-**Q: Does this work with Claude Code free tier?**
-A: The framework itself works with any Claude Code plan. However, sub-agents (which use the Agent tool) require Claude Code Max ($100/month) or Claude Code with an Anthropic API key. For optimal performance, Claude Code Max is recommended.
+**Q: Which Gemini models or environments are supported?**
+A: The framework works with Gemini 1.5 Pro, Gemini 2.0, and Gemini 3.x series models across Google AI Studio, Vertex AI, Gemini CLI, and agent environments like Google Antigravity. For complex multi-step reasoning and sub-agent orchestration, Gemini Pro / Ultra tier models or dedicated agent CLI tools are recommended.
 
 **Q: What languages does the framework support?**
 A: The framework templates are in English. All agent definitions and commands work in English. You can customize agents to work in any language after setup.
 
 **Q: Can I add my own agents?**
-A: Yes. Create a new `.md` file in `.claude/agents/` following the same format (frontmatter + persona + workflows + quality checks). The orchestrator will automatically discover it.
+A: Yes. Create a new `.md` file in `.gemini/agents/` following the same format (frontmatter + persona + workflows + quality checks). The orchestrator will automatically discover it.
 
 **Q: Can I remove agents I don't need?**
 A: Yes. Simply delete the agent file. The orchestrator gracefully handles missing departments.
 
-**Q: How does this differ from just writing a long CLAUDE.md?**
-A: Three key differences: (1) The orchestrator keeps its context at 10-15% by delegating to sub-agents instead of loading everything into one prompt. (2) The approval pipeline prevents AI from taking unauthorized external actions. (3) Each agent has specialized expertise, quality checks, and output templates that a monolithic CLAUDE.md cannot maintain.
+**Q: How does this differ from just writing a long GEMINI.md?**
+A: Three key differences: (1) The orchestrator keeps its context at 10-15% by delegating to sub-agents instead of loading everything into one prompt. (2) The approval pipeline prevents AI from taking unauthorized external actions. (3) Each agent has specialized expertise, quality checks, and output templates that a monolithic GEMINI.md cannot maintain.
 
 **Q: Is my data safe?**
-A: All data stays in your local `.company/` directory. Nothing is sent anywhere except through Claude Code's normal API calls. The framework includes security policies and permission controls out of the box.
+A: All data stays in your local `.company/` directory. Nothing is sent anywhere except through your configured Gemini API / CLI calls. The framework includes security policies and permission controls out of the box.
 
 **Q: Can I use this for a team (not solo)?**
 A: The framework was designed for one-person companies but works for small teams too. The approval pipeline naturally supports a single decision-maker (CEO). For larger teams, you may want to customize the approval flow.
@@ -280,7 +280,7 @@ A: Built-in error handling: retry up to 3 times with feedback, then escalate to 
 
 ## Learn the Background (Japanese)
 
-The operating record behind this framework is written up as a Japanese book: [Claude Codeで会社を動かす](https://zenn.dev/joinclass/books/claude-code-ai-ceo) (free chapters available on Zenn).
+The operating record behind this framework is written up as a Japanese book: [Claude Codeで会社を動かす](https://zenn.dev/joinclass/books/claude-code-ai-ceo) (free chapters available on Zenn). This repository adapts and optimizes that production architecture for the Gemini ecosystem.
 
 ---
 
@@ -302,7 +302,7 @@ Need help setting up AI-CEO Framework for your company? JoinClass LLC offers con
 
 | | Without AI-CEO | With AI-CEO |
 |---|---|---|
-| **Setup** | One giant CLAUDE.md with everything | 15 specialized agents + thin orchestrator |
+| **Setup** | One giant GEMINI.md with everything | 15 specialized agents + thin orchestrator |
 | **Context usage** | 100% consumed instantly | 10-15% orchestrator, delegates the rest |
 | **External actions** | AI sends emails, deploys freely | Approval pipeline: draft -> review -> execute |
 | **Error handling** | Errors silently ignored | Auto-retry 3x, then escalate to CEO |
@@ -316,13 +316,13 @@ Need help setting up AI-CEO Framework for your company? JoinClass LLC offers con
 
 This is not a prompt collection. It's a **production-grade operating system for running a company with AI**. Every agent, every workflow, every quality check was refined through daily use since February 2026. The hypothesis validation skill is the one we rely on most: in August 2026 it was part of the decision to narrow the company to three businesses and shut down five products.
 
-This is the distilled experience of running an entire company with Claude Code -- the failures, the fixes, and the frameworks that survived.
+This is the distilled experience of running an entire company with AI agents — adapted for Gemini — the failures, the fixes, and the frameworks that survived.
 
 ---
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=JOINCLASS/ai-ceo-framework&type=Date)](https://star-history.com/#JOINCLASS/ai-ceo-framework)
+[![Star History Chart](https://api.star-history.com/svg?repos=luckfieldnetwork/ai-ceo-framework-with-gemini&type=Date)](https://star-history.com/#luckfieldnetwork/ai-ceo-framework-with-gemini)
 
 ---
 
@@ -330,9 +330,9 @@ This is the distilled experience of running an entire company with Claude Code -
 
 Contributions are welcome! Whether it's a bug report, feature request, or pull request -- all input is valued.
 
-- **Issues**: Found a bug or have an idea? [Open an issue](https://github.com/JOINCLASS/ai-ceo-framework/issues).
+- **Issues**: Found a bug or have an idea? [Open an issue](https://github.com/luckfieldnetwork/ai-ceo-framework-with-gemini/issues).
 - **Pull Requests**: Fork the repo, make your changes, and submit a PR. Please keep changes focused and include a clear description.
-- **Discussions**: Questions or ideas that aren't quite issues? Start a [discussion](https://github.com/JOINCLASS/ai-ceo-framework/discussions).
+- **Discussions**: Questions or ideas that aren't quite issues? Start a [discussion](https://github.com/luckfieldnetwork/ai-ceo-framework-with-gemini/discussions).
 
 ---
 
@@ -342,4 +342,4 @@ MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
-Built with Claude Code. Tested in production. Ready for yours.
+Built for Gemini. Tested in production. Ready for yours.

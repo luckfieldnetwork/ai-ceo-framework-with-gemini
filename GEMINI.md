@@ -51,7 +51,7 @@ You are the sole interface that communicates directly with the CEO.
 
 - **Keep context usage at 10-15%**
 - Do not load file contents into your context -- **pass file paths only**
-- Delegate complex tasks to sub-agents in `.claude/agents/`
+- Delegate complex tasks to sub-agents in `.gemini/agents/`
 - Do not perform actual work (coding, writing, etc.) yourself
 
 ## Company Information References

@@ -27,7 +27,7 @@ How would this feature be used? Provide an example scenario.
 
 Which part of the framework does this affect?
 
-- [ ] Orchestrator (CLAUDE.md)
+- [ ] Orchestrator (GEMINI.md)
 - [ ] Agent (specify which)
 - [ ] Skill (specify which)
 - [ ] Steering file

@@ -8,7 +8,7 @@ set -e
 
 echo "============================================"
 echo "  AI-CEO Framework Setup"
-echo "  Run Your Entire Company with Claude Code"
+echo "  Run Your Entire Company with Gemini"
 echo "============================================"
 echo ""
 
@@ -72,8 +72,8 @@ echo "Setting up framework..."
 echo ""
 
 # Create directory structure
-mkdir -p .claude/agents
-mkdir -p .claude/skills
+mkdir -p .gemini/agents
+mkdir -p .gemini/skills
 mkdir -p .company/steering
 mkdir -p .company/products
 mkdir -p .company/departments/dev
@@ -93,16 +93,15 @@ echo "  [OK] Directory structure created"
 # Get the directory where the setup script lives (source files)
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-# Copy CLAUDE.md to project root
-cp "$SCRIPT_DIR/CLAUDE.md" ./CLAUDE.md
+# Copy GEMINI.md to project root
+cp "$SCRIPT_DIR/GEMINI.md" ./GEMINI.md
 
 # Copy agents
-cp "$SCRIPT_DIR/agents/"*.md .claude/agents/
+cp "$SCRIPT_DIR/agents/"*.md .gemini/agents/
 
 # Copy skills
-# Claude Code reads skills as <name>/SKILL.md directories, not flat .md files.
-# Copying them flat leaves every skill silently unloaded.
-cp -R "$SCRIPT_DIR/skills/"* .claude/skills/
+# Skills are organized as <name>/SKILL.md directories.
+cp -R "$SCRIPT_DIR/skills/"* .gemini/skills/
 
 # Copy steering files
 cp "$SCRIPT_DIR/steering/"*.md .company/steering/
@@ -120,11 +119,11 @@ replace_placeholder() {
     sed_cmd=(sed -i "s|{{${placeholder}}}|${value}|g")
   fi
   # Replace in framework directories
-  for dir in .claude .company; do
+  for dir in .gemini .company; do
     [ -d "$dir" ] && find "$dir" -name "*.md" -exec "${sed_cmd[@]}" {} +
   done
-  # Replace in CLAUDE.md at project root
-  [ -f "./CLAUDE.md" ] && "${sed_cmd[@]}" "./CLAUDE.md"
+  # Replace in GEMINI.md at project root
+  [ -f "./GEMINI.md" ] && "${sed_cmd[@]}" "./GEMINI.md"
 }
 
 replace_placeholder "COMPANY_NAME" "$COMPANY_NAME"
@@ -175,7 +174,7 @@ echo "  Setup Complete!"
 echo "============================================"
 echo ""
 echo "Next steps:"
-echo "  1. Open Claude Code in this directory"
+echo "  1. Open Gemini (CLI, Antigravity, or your Gemini agent) in this directory"
 echo "  2. Run: /ai-ceo:init"
 echo "     This will interview you and generate"
 echo "     VISION.md, STATE.md, ROADMAP.md, and"

@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed
+- **Migrated framework from Claude Code to Gemini**:
+  - Renamed orchestrator from `CLAUDE.md` to `GEMINI.md`
+  - Updated directory structure and references from `.claude/` to `.gemini/`
+  - Adapted `setup.sh` to initialize `.gemini/agents/` and `.gemini/skills/` and copy `GEMINI.md`
+  - Updated agents (`cfo-agent.md`, `hr-agent.md`, `content-engine-agent.md`, `tax-agent.md`) to reference `.gemini/` and Gemini / Google AI services
+  - Updated skills (`upgrade-automation`, `validate-hypothesis`) for Gemini and Google AI ecosystem
+  - Updated documentation (`README.md`, `README.ja.md`, `README.zh-CN.md`, issue templates) for Gemini compatibility
+
 ### Fixed
 - **Skills were never loaded.** Claude Code reads skills as `skills/<name>/SKILL.md`
   directories, but the framework shipped them as flat `.md` files and `setup.sh`
